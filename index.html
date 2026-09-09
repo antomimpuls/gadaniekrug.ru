@@ -1614,19 +1614,9 @@ ym(SITE_SETTINGS.yandexMetrikaId,"init",{clickmap:true,trackLinks:true,accurateT
       if (!isMobileClient()) return '';
       try {
         const url = new URL(value);
-        if (url.pathname !== '/:push') return '';
-        const userId = String(url.searchParams.get('userId') || '').trim();
-        if (!/^\d+$/.test(userId)) return '';
-        const nativeUrl = 'https://max.ru/:push?uid=' + encodeURIComponent(userId);
-        // Chrome's normal HTTPS navigation first opens MAX's intermediary page.
-        // An explicit Android intent preserves the same verified uid route and
-        // hands it straight to MAX, which opens the dialog without that page.
-        if (isAndroidClient()) {
-          return 'intent://max.ru/:push?uid=' + encodeURIComponent(userId) +
-            '#Intent;scheme=https;package=ru.oneme.app;S.browser_fallback_url=' +
-            encodeURIComponent(nativeUrl) + ';end';
-        }
-        return nativeUrl;
+        const chatId = url.hostname === 'web.max.ru' ? url.pathname.slice(1) : '';
+        if (!/^\d+$/.test(chatId)) return '';
+        return 'https://max.ru/' + chatId;
       } catch (_) { return ''; }
     }
 
