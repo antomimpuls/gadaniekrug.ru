@@ -11,8 +11,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Philosopher:wght@700&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
 <script>
 const SITE_SETTINGS = {
-  'phoneNumber': '+79613133053',
-  'psychicName': 'Анастасия Николаевна',
+  'phoneNumber': '+79034892630',
+  'psychicName': 'Римма',
   'city': 'Краснодар',
   'address': 'г. Москва, ул. Северная, д. 324, офис 45',
   'enableRedirect': false,
@@ -21,7 +21,7 @@ const SITE_SETTINGS = {
   'siteUrl': 'https://gadaniekrug.ru/',
   'whatsappMessage': 'Здравствуйте, хочу обратиться к вам за помощью.',
   'telegramEnabled': true,
-  'telegramNickname': 'nastyanikolayevna12mailru',
+  'telegramNickname': 'Mag_Rima',
   'yandexMetrikaId': '113163213',
   'psychicImageURL': 'https://gadaniekrug.ru/photo-efbb3ade382a4600ade421dd9e1624dd.jpg',
   'workingHours': 'ежедневно 08:30-21:30',
@@ -30,16 +30,16 @@ const SITE_SETTINGS = {
   'maxEnabled': false,
   'maxUrl': ""
 };
-const PSYCHIC_NAME=SITE_SETTINGS.psychicName||'Анастасия Николаевна';
+const PSYCHIC_NAME=SITE_SETTINGS.psychicName||'Римма';
 const PHONE_DIGITS=(SITE_SETTINGS.phoneNumber||'').replace(/\D/g,'');
 const WHATSAPP_MESSAGE=PSYCHIC_NAME ? `Здравствуйте, ${PSYCHIC_NAME}! Хочу обратиться к вам за помощью.` : 'Здравствуйте, хочу обратиться к вам за помощью.';
 const ENCODED_MESSAGE=encodeURIComponent(WHATSAPP_MESSAGE);
-const WA_URL="https://wa.me/79613133053?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%90%D0%BD%D0%B0%D1%81%D1%82%D0%B0%D1%81%D0%B8%D1%8F%20%D0%9D%D0%B8%D0%BA%D0%BE%D0%BB%D0%B0%D0%B5%D0%B2%D0%BD%D0%B0%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%80%D0%B0%D1%82%D0%B8%D1%82%D1%8C%D1%81%D1%8F%20%D0%BA%20%D0%B2%D0%B0%D0%BC%20%D0%B7%D0%B0%20%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%D1%8E.";
-const FALLBACK_WA_URL="https://wa.me/79613133053?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%90%D0%BD%D0%B0%D1%81%D1%82%D0%B0%D1%81%D0%B8%D1%8F%20%D0%9D%D0%B8%D0%BA%D0%BE%D0%BB%D0%B0%D0%B5%D0%B2%D0%BD%D0%B0%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%80%D0%B0%D1%82%D0%B8%D1%82%D1%8C%D1%81%D1%8F%20%D0%BA%20%D0%B2%D0%B0%D0%BC%20%D0%B7%D0%B0%20%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%D1%8E.";
+const WA_URL="https://wa.me/79034892630?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%A0%D0%B8%D0%BC%D0%BC%D0%B0%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%80%D0%B0%D1%82%D0%B8%D1%82%D1%8C%D1%81%D1%8F%20%D0%BA%20%D0%B2%D0%B0%D0%BC%20%D0%B7%D0%B0%20%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%D1%8E.";
+const FALLBACK_WA_URL="https://wa.me/79034892630?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%A0%D0%B8%D0%BC%D0%BC%D0%B0%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%80%D0%B0%D1%82%D0%B8%D1%82%D1%8C%D1%81%D1%8F%20%D0%BA%20%D0%B2%D0%B0%D0%BC%20%D0%B7%D0%B0%20%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%D1%8E.";
 const TARGET_WA_URL=WA_URL||FALLBACK_WA_URL;
 const TELEGRAM_ENABLED=Number(SITE_SETTINGS.telegramEnabled||0)===1;
 const TELEGRAM_NICKNAME=(SITE_SETTINGS.telegramNickname||'').replace(/^@+/,'');
-const TELEGRAM_URL="https://t.me/nastyanikolayevna12mailru?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%90%D0%BD%D0%B0%D1%81%D1%82%D0%B0%D1%81%D0%B8%D1%8F%20%D0%9D%D0%B8%D0%BA%D0%BE%D0%BB%D0%B0%D0%B5%D0%B2%D0%BD%D0%B0%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%80%D0%B0%D1%82%D0%B8%D1%82%D1%8C%D1%81%D1%8F%20%D0%BA%20%D0%B2%D0%B0%D0%BC%20%D0%B7%D0%B0%20%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%D1%8E.";
+const TELEGRAM_URL="https://t.me/Mag_Rima?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%A0%D0%B8%D0%BC%D0%BC%D0%B0%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%80%D0%B0%D1%82%D0%B8%D1%82%D1%8C%D1%81%D1%8F%20%D0%BA%20%D0%B2%D0%B0%D0%BC%20%D0%B7%D0%B0%20%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%D1%8E.";
 
 const SITE_STATS_TRACKER_CONFIG = {
     projectUrl: "https://stats.72-56-243-254.sslip.io",
@@ -516,13 +516,13 @@ footer{background:#0b131a;padding:40px 0;text-align:center;border-top:1px solid 
 .studio-photo-backdrop{position:absolute;inset:7px;border-radius:50%;overflow:hidden;z-index:1;background:center/cover no-repeat url("https://gadaniekrug.ru/photo-efbb3ade382a4600ade421dd9e1624dd.jpg");filter:blur(8px);opacity:.85;pointer-events:none}
 .hero-img #psychicImage{box-sizing:border-box!important;object-fit:contain!important;object-position:center!important;padding:12%!important;background:transparent!important}
 </style>
-<!-- CONVERSIA_CONTACT_CONTRACT_V1 6cd1d72eb41b60a978fa50a6c4a0691b83c3cb01d8b88e8b786357bdea6e15b7 -->
+<!-- CONVERSIA_CONTACT_CONTRACT_V1 ed418abf4bb12280b45cccab9ee12305b6afae588dc888811338b422926e7bdf -->
 </head>
 <body>
 
 <div class="sticky-messengers" id="stickyMessengers">
-<a data-msg-url="https://wa.me/79613133053" class="btn btn-wa" target="_blank" rel="noopener" data-wa="true">📲 Чат в WhatsApp</a>
-<a data-msg-url="https://t.me/nastyanikolayevna12mailru" class="btn btn-tg" target="_blank" rel="noopener" data-telegram="true">✈ Написать в Telegram</a>
+<a data-msg-url="https://wa.me/79034892630" class="btn btn-wa" target="_blank" rel="noopener" data-wa="true">📲 Чат в WhatsApp</a>
+<a data-msg-url="https://t.me/Mag_Rima" class="btn btn-tg" target="_blank" rel="noopener" data-telegram="true">✈ Написать в Telegram</a>
 </div>
 
 <section class="hero">
@@ -540,8 +540,8 @@ footer{background:#0b131a;padding:40px 0;text-align:center;border-top:1px solid 
 <div class="trust-item"><span style="font-size:1.5rem">📱</span><span style="font-size:0.85rem;font-weight:600">Поддержка каждый день</span></div>
         </div>
         <div class="hero-cta">
-        <a data-msg-url="https://wa.me/79613133053" class="btn btn-wa" target="_blank" rel="noopener" data-wa="true">📲 Написать в WhatsApp</a>
-        <a data-msg-url="https://t.me/nastyanikolayevna12mailru" class="btn btn-tg" target="_blank" rel="noopener" data-telegram="true">✈ Связаться в Telegram</a>
+        <a data-msg-url="https://wa.me/79034892630" class="btn btn-wa" target="_blank" rel="noopener" data-wa="true">📲 Написать в WhatsApp</a>
+        <a data-msg-url="https://t.me/Mag_Rima" class="btn btn-tg" target="_blank" rel="noopener" data-telegram="true">✈ Связаться в Telegram</a>
         </div>
         </div>
         <div>
@@ -941,7 +941,7 @@ footer{background:#0b131a;padding:40px 0;text-align:center;border-top:1px solid 
         <p>ОГРНИП: 325774600019856</p>
         <p>ИНН: 773401256734</p>
         <p>Адрес: 123112, г. Москва, Пресненская наб., д. 8, офис 1205</p>
-        <p>Телефон: +7 (961) 313-30-53</p>
+        <p>Телефон: +7 (903) 489-26-30</p>
         <p>Email: info@gadaniekrug.ru</p>
         </div>
         <p style="font-size:0.9rem;color:#94a3b8;font-style:italic;margin-bottom:30px">Дата последнего обновления: 5 ноября 2025 года</p>
@@ -976,7 +976,7 @@ footer{background:#0b131a;padding:40px 0;text-align:center;border-top:1px solid 
 <p>Для этого напишите на контактный email, указанный ниже.</p>
         <h2>8. Данные для связи</h2>
         <div class="company-info">
-        <p>Телефон: <a href="tel:+79613133053" style="color:#34d399;text-decoration:none">+7 (961) 313-30-53</a></p>
+        <p>Телефон: <a href="tel:+79034892630" style="color:#34d399;text-decoration:none">+7 (903) 489-26-30</a></p>
         <p>Email: <a href="mailto:info@gadaniekrug.ru" style="color:#34d399;text-decoration:none">info@gadaniekrug.ru</a></p>
         <p>Сайт: <a href="https://gadaniekrug.ru/" style="color:#34d399;text-decoration:none" target="_blank">https://gadaniekrug.ru</a></p>
         </div>
@@ -1253,7 +1253,7 @@ function replaceNamePlaceholders(name){
 }
 
 function setImagesAndTexts(){
-    const psychicName = SETTINGS.psychicName || 'Анастасия Николаевна';
+    const psychicName = SETTINGS.psychicName || 'Римма';
     replaceNamePlaceholders(psychicName);
     const heroName = document.getElementById('heroName');
     if (heroName) {
